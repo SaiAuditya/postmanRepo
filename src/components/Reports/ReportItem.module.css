@@ -1,0 +1,35 @@
+.item h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.item header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.pass {
+  border-radius: 10px;
+  padding: 0.15rem 1.5rem;
+  background-color: #0a8560;
+  color: white;
+  font-size: 1rem;
+}
+
+.fail {
+  border-radius: 10px;
+  padding: 0.15rem 1.5rem;
+  background-color: #ad2b0a;
+  color: white;
+  font-size: 1rem;
+}
+
+.item p {
+  color: #3a3a3a;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
