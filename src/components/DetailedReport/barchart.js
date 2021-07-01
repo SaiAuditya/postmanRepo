@@ -34,7 +34,7 @@ const options = {
 
 const VerticalBar = (props) => {
     data.datasets[0].data = props.data;
-    console.log("bar" + props.data)
+   // console.log("bar" + props.data)
     return(
   <>
     <Bar data={data} options={options} />

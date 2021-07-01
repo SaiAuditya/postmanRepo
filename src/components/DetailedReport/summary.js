@@ -43,7 +43,7 @@ const StackedBar = (props) => {
     data.datasets[1].data  = props.failArray
     data.labels = props.fileNames
 
-    console.log(props.dataSets)
+   // console.log(props.dataSets)
     return(
     <Card>
     <Bar data={data} options={options} height={70}/>

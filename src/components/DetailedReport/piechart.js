@@ -25,7 +25,7 @@ const DoughnutChart = (props) => {
     const dataArr = props.data;
     const newData = {...data}
     newData.datasets[0].data = dataArr
-    console.log(newData)
+    //console.log(newData)
     return(
     <Doughnut data={newData} height={50} />
     )

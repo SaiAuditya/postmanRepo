@@ -35,9 +35,9 @@ const uiSlice = createSlice({
       },
       update_Results(state,action)
       {
-        console.log("payLoad "+ action.payload)
+        //console.log("payLoad "+ action.payload)
         state.results=action.payload;
-        console.log(state.results)
+        //console.log(state.results)
       },
 
       updateFilterBy(state,action)

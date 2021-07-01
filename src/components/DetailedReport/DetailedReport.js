@@ -6,6 +6,7 @@ import DoughnutChart from './piechart'
 import ReportStep from '../DetailedReport/reportstep'
 import VerticalBar from './barchart';
 import {uiActions} from '../../store/ui-slice';
+import classes from '../Reports/Report.module.css'
 const loadData = async (filename) =>
  {
   const responce = await fetch(
@@ -34,7 +35,7 @@ const DetaildReport = () =>
        
        dispatch(uiActions.update_Results(data))
 
-       console.log(data);
+       //console.log(data);
 
         const setCounts = () =>
         {
@@ -52,36 +53,41 @@ const DetaildReport = () =>
         
         let totalReq= data.collection.requests.length;
         let passedReq = totalReq-failedCount;
-        console.log("test "+data.collection.requests)
+       // console.log("test "+data.collection.requests)
         for (var j=0; j< data.collection.requests.length;j++)
         {
             data.collection.requests[j].method === "POST" ? _postReqCount+=1: _getReqCount+=1
               
         }
-        console.log("passedCount"+passedCount)
-        console.log("post Reqs " +_postReqCount)
-        console.log("get Reqs " +_getReqCount)
+       // console.log("passedCount"+passedCount)
+       // console.log("post Reqs " +_postReqCount)
+       // console.log("get Reqs " +_getReqCount)
         dispatch(uiActions.updateCounts({totalPassedTests: passedCount, totalFailedTests: failedCount, 
             totalFailedReqs:failedCount,totalPassedReqs:passedReq, totalGetReqs:_getReqCount, totalPostReqs: _postReqCount}))
         }
         setCounts();
        } 
        ); 
-        console.log(filename);
+        //console.log(filename);
     },[filename,dispatch])
 
-    const filterAll = ()=>{ dispatch(uiActions.updateFilterBy('All'))}
+    const filterAll = ()=>{ dispatch(uiActions.updateFilterBy('All'))
+    //const failed = classes.act
+}
     const filterFail = () => {dispatch(uiActions.updateFilterBy('Failed'))}
     const filterPass= ()=> {dispatch(uiActions.updateFilterBy('Passed'))}
    
     return(
         <Fragment>
+           
+           {!results && <div><div className={classes.loader}></div></div>}
         {results && <Card>
-            <button onClick ={filterAll}>All</button>
-            <button onClick = {filterFail}>Fail</button>
+            <button onClick ={filterAll} >All</button>
+            <button onClick = {filterFail} >Fail</button>
             <button onClick={filterPass}>Pass</button>
         <p>Filtering on {filterBy}</p>
             </Card>}
+            
       { results && <Card> 
            <table>
             <tbody>

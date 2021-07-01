@@ -12,7 +12,7 @@ const ReportItem = (props) => {
   const dispath = useDispatch();
   const onClickHandler = () =>
   {
-    console.log('dispatching action')
+    //console.log('dispatching action')
     dispath(uiActions.showReport(title));
   }
 

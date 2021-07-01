@@ -31,10 +31,11 @@ useEffect( () => {
     );
 },[]);
 
-console.log(files);
+//console.log(files);
   return (
     <section className={classes.products}>
       <h2>All Avaialable Reports</h2>
+     { !files && <div className={classes.loader}></div>}
       {files && <StackedBar passArray={passArray} failArray={failArray} fileNames = {fileNames}></StackedBar>}
       {files &&
       <ul>
